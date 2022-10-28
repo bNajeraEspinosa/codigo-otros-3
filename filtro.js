@@ -11,6 +11,8 @@ const productos = [
 const li = document.getElementsByName("lista-de-productos")
 const $i = document.querySelector('.input');
 
+
+/* cambiamos una variable 1 de los ciclos for */
 for (let i = 0; i < productos.length; i++) {
   var d = document.createElement("div")
   d.classList.add("producto")
@@ -29,7 +31,8 @@ for (let i = 0; i < productos.length; i++) {
 }
 
 displayProductos(productos)
-const botonDeFiltro = document.querySelector("button");
+/* se vincula el html y el boton */
+const botonDeFiltro = document.querySelector(".button");
 
 botonDeFiltro.onclick = function() {
   while (li.firstChild) {
@@ -40,16 +43,17 @@ botonDeFiltro.onclick = function() {
   console.log(texto);
   const productosFiltrados = filtrado(productos, texto );
 
-  for (let i = 0; i < productosFiltrados.length; i++) {
+
+  for (let j = 0; j < productosFiltrados.length; j++) {
     var d = document.createElement("div")
     d.classList.add("producto")
   
     var ti = document.createElement("p")
     ti.classList.add("titulo")
-    ti.textContent = productosFiltrados[i].nombre
+    ti.textContent = productosFiltrados[j].nombre
     
     var imagen = document.createElement("img");
-    imagen.setAttribute('src', productosFiltrados[i].img);
+    imagen.setAttribute('src', productosFiltrados[j].img);
   
     d.appendChild(ti)
     d.appendChild(imagen)
